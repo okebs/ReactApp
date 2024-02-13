@@ -27,7 +27,15 @@ function App() {
         <Routes>
           <Route path="/scanner" element={<ScannerPage />} />
           <Route path="/generator" element={<GeneratorPage />} />
-          <Route path="/encrypt" element={<EncryptionGame />} />
+          <Route path="/encrypt" element={
+            <EncryptionGame
+              encryptedSentence="72-11-62-32-43" // Corrected encrypted sentence for "WATER"
+              correctSentence="WATER" // For testing purposes
+              timeLimit={60} // 5 minutes time limit
+              imagePath="/images/octagon-cipher.png" // Replace with your actual image path
+            />
+          } />
+
         </Routes>
       </div>
     </Router>

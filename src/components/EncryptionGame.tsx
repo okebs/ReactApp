@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 
 const octagon = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQR', 'STU', 'VWX'];
 
@@ -56,29 +56,87 @@ const EncryptionGame = () => {
       <p>Encrypted Message: {encrypted}</p>
     </div>
   );
+};*/
+
+ //Front-end code to send the score to the back end
+
+// const submitScore = async (score, userId) => {
+//     try {
+//       const response = await fetch('https://yourapi.com/submit-score', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'Authorization': `Bearer ${userToken}` // if using tokens for auth
+//         },
+//         body: JSON.stringify({ score, userId })
+//       });
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! status: ${response.status}`);
+//       }
+//       const result = await response.json();
+//       console.log('Score submitted:', result);
+//     } catch (error) {
+//       console.error('Error submitting score:', error);
+//     }
+//   }; 
+  
+
+//export default EncryptionGame;
+
+import React, { useState, useEffect } from 'react';
+
+// Define types for the component props
+type EncryptionGameProps = {
+  encryptedSentence: string;
+  correctSentence: string;
+  timeLimit: number;
+  imagePath: string;
 };
 
-// Front-end code to send the score to the back end
-/*
-const submitScore = async (score, userId) => {
-    try {
-      const response = await fetch('https://yourapi.com/submit-score', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${userToken}` // if using tokens for auth
-        },
-        body: JSON.stringify({ score, userId })
-      });
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const result = await response.json();
-      console.log('Score submitted:', result);
-    } catch (error) {
-      console.error('Error submitting score:', error);
+const EncryptionGame: React.FC<EncryptionGameProps> = ({ encryptedSentence, correctSentence, timeLimit, imagePath }) => {
+  const [userInput, setUserInput] = useState<string>('');
+  const [timer, setTimer] = useState<number>(timeLimit);
+  const [isGameOver, setIsGameOver] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (timer > 0) {
+      const intervalId = setInterval(() => {
+        setTimer(prevTimer => prevTimer - 1);
+      }, 1000);
+      return () => clearInterval(intervalId);
+    } else {
+      setIsGameOver(true);
     }
-  }; */
-  
+  }, [timer]);
+
+  const checkSolution = (): void => {
+    if (userInput.toLowerCase() === correctSentence.toLowerCase()) {
+      alert('Correct!');
+    } else {
+      alert('Incorrect, try again!');
+    }
+    setUserInput(''); // Reset input field
+  };
+
+  return (
+    <div>
+      <h2>Decryption Challenge</h2>
+      <img src={imagePath} alt="Octagon Cipher" />
+      <p>Encrypted: {encryptedSentence}</p>
+      <p>Time Remaining: {timer}</p>
+      <input 
+        type="text" 
+        value={userInput} 
+        onChange={(e) => setUserInput(e.target.value)}
+        placeholder="Enter deciphered sentence"
+        disabled={isGameOver}
+      />
+      <button onClick={checkSolution} disabled={isGameOver}>
+        Submit
+      </button>
+      {isGameOver && <p>Time's up! The correct sentence was: {correctSentence}</p>}
+    </div>
+  );
+};
 
 export default EncryptionGame;
