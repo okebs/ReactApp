@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Message from './Message';
 import ScannerPage from './components/ScannerPage';
 import GeneratorPage from './components/GeneratorPage';
+import EncryptionGame from './components/EncryptionGame';
 
 function App() {
   return (
@@ -18,11 +19,15 @@ function App() {
             <li>
               <Link to="/generator">Generate QR Code</Link>
             </li>
+            <li>
+              <Link to="/encrypt">Encryption Game (placeholder) </Link>
+            </li>
           </ul>
         </nav>
         <Routes>
-          <Route path="/scanner" Component={ScannerPage} />
-          <Route path="/generator" Component={GeneratorPage} />
+          <Route path="/scanner" element={<ScannerPage />} />
+          <Route path="/generator" element={<GeneratorPage />} />
+          <Route path="/encrypt" element={<EncryptionGame />} />
         </Routes>
       </div>
     </Router>
