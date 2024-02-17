@@ -46,16 +46,16 @@ const GreedyTrolls: React.FC = () => {
     setCoinsState(coins);
   };
 
-  const mapImagePath = '/images/greedy-trolls/2022-CH-04_taskbody.svg';
+  const mapImagePath = 'src/assets/greedy-trolls/2022-CH-04_taskbody.svg';
 
   const getImagePath = (type: CoinType) => {
     switch (type) {
       case 'copper':
-        return '/images/greedy-trolls/2022-CH-04_copper.svg';
+        return 'src/assets/greedy-trolls/2022-CH-04_copper.svg';
       case 'gold':
-        return '/images/greedy-trolls/2022-CH-04_gold.svg';
+        return 'src/assets/greedy-trolls/2022-CH-04_gold.svg';
       case 'silver':
-        return '/images/greedy-trolls/2022-CH-04_silver.svg';
+        return 'src/assets/greedy-trolls/2022-CH-04_silver.svg';
       default:
         return ''; // Default case or error handling
     }

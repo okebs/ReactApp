@@ -36,7 +36,7 @@ function App() {
               encryptedSentence="72-11-62-32-43" // Corrected encrypted sentence for "WATER"
               correctSentence="WATER" // For testing purposes
               timeLimit={60} // 1 minute time limit
-              imagePath="/images/cipher8/octagon-cipher.svg" // Replace with your actual image path
+              imagePath="src/assets/cipher8/octagon-cipher.svg" // Replace with your actual image path
             />
           } />
           <Route path="/greedy-trolls" element={<GreedyTrolls />} />
