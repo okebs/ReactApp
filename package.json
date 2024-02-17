@@ -12,15 +12,19 @@
     "@yudiel/react-qr-scanner": "^1.1.10",
     "firebase": "^10.4.0",
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-qr-code": "^2.0.12",
     "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/react": "^18.0.27",
+    "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
     "typescript": "^4.9.3",
+    "url-loader": "^4.1.1",
     "vite": "^4.1.0"
   }
 }

@@ -1,0 +1,30 @@
+.tube {
+    width: 60px; /* Adjust as needed for the width of the tube */
+    height: 320px; /* Adjust as needed for the height of the tube */
+    border: 2px solid #000; /* Simple border for visualization */
+    border-radius: 50px; /* Rounded edges for a tube-like appearance */
+    background-color: #eee; /* Light grey background */
+    display: flex; /* Using flexbox for alignment */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center coins along the main axis (now vertical) */
+    align-items: center; /* Center coins along the cross axis (now horizontal) */
+    margin: 20px auto; /* Center the tube on the page */
+  }
+
+  .troll-map {
+    max-width: 100%; /* Make sure it doesn't overflow its container */
+    max-height: 500px; /* Adjust this to the maximum height you want */
+    object-fit: contain; /* This will ensure that the aspect ratio is maintained */
+    display: block; /* Block display for images can sometimes help with sizing */
+    margin: 0 auto; /* Center it horizontally if there's extra space */
+  }
+
+  .outside {
+    /* Style for the area where coins are initially placed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  

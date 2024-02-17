@@ -5,6 +5,7 @@ import Message from './Message';
 import ScannerPage from './components/ScannerPage';
 import GeneratorPage from './components/GeneratorPage';
 import EncryptionGame from './components/EncryptionGame';
+import GreedyTrolls from './components/GreedyTrolls';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             <li>
               <Link to="/encrypt">Encryption Game (placeholder) </Link>
             </li>
+            <li>
+            <Link to="/greedy-trolls">Greedy Trolls Game</Link>
+            </li>
           </ul>
         </nav>
         <Routes>
@@ -31,10 +35,11 @@ function App() {
             <EncryptionGame
               encryptedSentence="72-11-62-32-43" // Corrected encrypted sentence for "WATER"
               correctSentence="WATER" // For testing purposes
-              timeLimit={60} // 5 minutes time limit
-              imagePath="/images/octagon-cipher.png" // Replace with your actual image path
+              timeLimit={60} // 1 minute time limit
+              imagePath="/images/cipher8/octagon-cipher.svg" // Replace with your actual image path
             />
           } />
+          <Route path="/greedy-trolls" element={<GreedyTrolls />} />
 
         </Routes>
       </div>
