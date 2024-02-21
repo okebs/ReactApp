@@ -21,10 +21,18 @@
 
   .outside {
     /* Style for the area where coins are initially placed */
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: row;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
   
+  .game-container {
+    display: flex;
+    align-items: start; /* This ensures the items are aligned at the top */
+    gap: 20px; /* This adds space between the map*/
+  }  
   
