@@ -6,6 +6,7 @@ import ScannerPage from './components/ScannerPage';
 import GeneratorPage from './components/GeneratorPage';
 import EncryptionGame from './components/EncryptionGame';
 import GreedyTrolls from './components/GreedyTrolls';
+import BallSortGame from './components/BallSortGame';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
             <li>
             <Link to="/greedy-trolls">Greedy Trolls Game</Link>
             </li>
+            <li>
+            <Link to="/ball-sort">Ball Sort Game </Link>
+            </li>
           </ul>
         </nav>
         <Routes>
@@ -40,6 +44,7 @@ function App() {
             />
           } />
           <Route path="/greedy-trolls" element={<GreedyTrolls />} />
+          <Route path="/ball-sort" element={<BallSortGame />} />
 
         </Routes>
       </div>
