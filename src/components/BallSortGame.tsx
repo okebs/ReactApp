@@ -42,7 +42,7 @@ const BallSortGame: React.FC = () => {
     // Rule 2: When there is space in a tube, a ball can only be moved on a ball of the same colour
     // Rule 3: Only one ball at the top of a tube can be moved at a time
     if (
-        destinationTube.balls.length > 3 ||
+        destinationTube.balls.length >= 3 ||
         destinationTube.balls.length > 0 && 
       destinationTube.balls[0].color !== sourceTube.balls[source.index].color
     ) {
