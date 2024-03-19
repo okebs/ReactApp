@@ -95,8 +95,8 @@ const BallSortGame: React.FC = () => {
             {tubes.map((tube, index) => (
               <StrictModeDroppable droppableId={tube.id} key={tube.id}>
                 {(provided) => (
-                  <div ref={provided.innerRef} {...provided.droppableProps} className={styles.tube}>
-                    <img src={getTubeImagePath(tube.id)} alt="Tube" className={styles.tubeImage} />
+                  <div ref={provided.innerRef} {...provided.droppableProps} >
+                    <img src={getTubeImagePath(tube.id)} alt="Tube" />
                     {tube.balls.map((ball, index) => (
                       <Draggable draggableId={ball.id} index={index} key={ball.id} isDragDisabled={index !== 0}>
                         {(provided) => (
