@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="369px" preserveAspectRatio="none" style="width:2126px;height:369px;background:#FFFFFF;" version="1.1" viewBox="0 0 2126 369" width="2126px" zoomAndPan="magnify"><defs/><g><!--MD5=[a6b11690603008770ed0a7fde308d737]
+cluster Computational Thinking Game Web App--><g id="cluster_Computational Thinking Game Web App"><rect fill="#FFFFFF" height="112" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:1.0;" width="2033" x="87.5" y="116.5"/><text fill="#000000" font-family="Verdana" font-size="22" font-weight="bold" lengthAdjust="spacing" textLength="496" x="856" y="140.6182">Computational Thinking Game Web App</text></g><g id="elem_Deploy"><ellipse cx="1123.5306" cy="187.0061" fill="#FFFFFF" rx="90.5306" ry="20.5061" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="141" x="1053.0306" y="190.574">Deploy via QR-Code</text></g><g id="elem_PlayGames"><ellipse cx="881.2889" cy="187.1578" fill="#FFFFFF" rx="116.2889" ry="25.6578" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="198" x="782.2889" y="190.7256">Play Bebras-Inspired Games</text></g><g id="elem_ViewInstructions"><ellipse cx="2002.594" cy="186.8188" fill="#FFFFFF" rx="102.094" ry="22.8188" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="167" x="1919.094" y="190.3867">View Game Instructions</text></g><g id="elem_Compete"><ellipse cx="1766.4446" cy="187.1889" fill="#FFFFFF" rx="98.9446" ry="22.1889" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="160" x="1686.4446" y="190.7568">Compete in Challenges</text></g><g id="elem_Collaborate"><ellipse cx="1347.4967" cy="187.0993" fill="#FFFFFF" rx="98.4967" ry="22.0993" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="159" x="1267.9967" y="190.6672">Collaborate on Puzzles</text></g><g id="elem_ViewLeaderboards"><ellipse cx="642.5572" cy="186.8114" fill="#FFFFFF" rx="87.0572" ry="19.8114" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="133" x="576.0572" y="190.3793">View Leaderboards</text></g><g id="elem_SubmitFeedback"><ellipse cx="438.5198" cy="187.204" fill="#FFFFFF" rx="81.5198" ry="18.704" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="120" x="378.5198" y="190.7718">Submit Feedback</text></g><g id="elem_ManageGames"><ellipse cx="1556.7349" cy="187.047" fill="#FFFFFF" rx="75.7349" ry="17.547" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="106" x="1503.7349" y="190.6148">Manage Games</text></g><g id="elem_MonitorProgress"><ellipse cx="212.4168" cy="187.1834" fill="#FFFFFF" rx="108.9168" ry="24.1834" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="182" x="121.4168" y="190.7512">Monitor Student Progress</text></g><!--MD5=[494c489cc4328319247ec2e1625e02a3]
+entity Student--><g id="elem_Student"><ellipse cx="39.5" cy="157" fill="#FFFFFF" rx="8" ry="8" style="stroke:#000000;stroke-width:1.0;"/><path d="M39.5,165 L39.5,192 M26.5,173 L52.5,173 M39.5,192 L26.5,207 M39.5,192 L52.5,207 " fill="none" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="57" x="11" y="223.0752">Student</text></g><!--MD5=[e64da02f5594507ded6bc1fdafafe102]
+entity Teacher--><g id="elem_Teacher"><ellipse cx="884.5" cy="295" fill="#FFFFFF" rx="8" ry="8" style="stroke:#000000;stroke-width:1.0;"/><path d="M884.5,303 L884.5,330 M871.5,311 L897.5,311 M884.5,330 L871.5,345 M884.5,330 L897.5,345 " fill="none" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="55" x="857" y="361.0752">Teacher</text></g><!--MD5=[f37fce11f5a574fb9ee6b16d659d5448]
+entity SystemAdmin--><g id="elem_SystemAdmin"><ellipse cx="1339.5" cy="19" fill="#FFFFFF" rx="8" ry="8" style="stroke:#000000;stroke-width:1.0;"/><path d="M1339.5,27 L1339.5,54 M1326.5,35 L1352.5,35 M1339.5,54 L1326.5,69 M1339.5,54 L1352.5,69 " fill="none" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="154" x="1262.5" y="85.0752">System Administrator</text></g><!--MD5=[c171a538989df38b4073589038fd3c0f]
+reverse link Deploy to Student--><g id="link_Deploy_Student"><path d="M1100.94,163.41 C1077.67,141.09 1039.07,109.39 998,98.25 C950.12,85.26 152.88,85.26 105,98.25 C81.16,104.72 64.71,127.2 54.26,147.92 " fill="none" id="Deploy-backto-Student" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1104.54,166.91,1100.8748,157.7685,1100.9548,163.4248,1095.2985,163.5048,1104.54,166.91" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[3116f90d2e80f2a83b54ae7d518baac0]
+link Student to PlayGames--><g id="link_Student_PlayGames"><path d="M54.26,147.92 C64.71,127.2 81.16,104.72 105,98.25 C138.51,89.16 696.49,89.16 730,98.25 C773.46,110.04 817.22,137.78 846.45,159.13 " fill="none" id="Student-to-PlayGames" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="850.66,162.23,845.7914,153.6686,846.6362,159.2621,841.0427,160.1068,850.66,162.23" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[3e117620cd12abecf1811e90de2823b7]
+link Student to ViewInstructions--><g id="link_Student_ViewInstructions"><path d="M54.26,147.92 C64.71,127.2 81.16,104.72 105,98.25 C152.21,85.44 1818.79,85.44 1866,98.25 C1907.69,109.56 1948.25,139 1974.17,160.88 " fill="none" id="Student-to-ViewInstructions" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1978.2,164.33,1973.9506,155.4451,1974.3967,161.0843,1968.7574,161.5304,1978.2,164.33" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[1f11888ffceb874bc62f76704e174f7a]
+reverse link Compete to Student--><g id="link_Compete_Student"><path d="M1740.09,162.05 C1714.68,140.01 1674.03,109.65 1632,98.25 C1591.06,87.14 145.94,87.14 105,98.25 C81.16,104.72 64.71,127.2 54.26,147.92 " fill="none" id="Compete-backto-Student" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1744.03,165.51,1739.9076,156.5654,1740.2733,162.2104,1734.6283,162.5761,1744.03,165.51" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[2d227982b39f5db186855e34c6d85be7]
+reverse link Collaborate to Student--><g id="link_Collaborate_Student"><path d="M1321.33,162.02 C1296.14,139.96 1255.81,109.59 1214,98.25 C1184.27,90.18 134.73,90.18 105,98.25 C81.16,104.72 64.71,127.2 54.26,147.92 " fill="none" id="Collaborate-backto-Student" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1325.24,165.48,1321.1538,156.5188,1321.4967,162.1653,1315.8502,162.5082,1325.24,165.48" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[4ed029f5191edf4e144dfb88a42595ac]
+link Student to ViewLeaderboards--><g id="link_Student_ViewLeaderboards"><path d="M54.26,147.92 C64.71,127.2 81.16,104.72 105,98.25 C149.5,86.18 475.5,86.18 520,98.25 C560.49,109.24 598.15,141.07 620.75,163.46 " fill="none" id="Student-to-ViewLeaderboards" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="624.51,167.24,621.0117,158.0334,620.9888,163.6902,615.332,163.6673,624.51,167.24" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[45d2550a7c6a6af9284c257409ed41c9]
+link Student to SubmitFeedback--><g id="link_Student_SubmitFeedback"><path d="M54.26,147.92 C64.71,127.2 81.16,104.72 105,98.25 C151.54,85.62 275.46,85.62 322,98.25 C362.13,109.14 398.53,142.33 419.59,164.89 " fill="none" id="Student-to-SubmitFeedback" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="423.09,168.69,419.9292,159.3621,419.7004,165.0143,414.0482,164.7855,423.09,168.69" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[f36ab6db08378ca3b6de9796228fab9c]
+reverse link ManageGames to Teacher--><g id="link_ManageGames_Teacher"><path d="M1527.44,206.35 C1509.63,216.77 1486,229.16 1463.5,236.5 C1258.85,303.26 996.61,319.45 912.07,323.05 " fill="none" id="ManageGames-backto-Teacher" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1531.84,203.75,1522.0571,204.8881,1527.5362,206.2951,1526.1293,211.7742,1531.84,203.75" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[22c9cbd473650fe30ca1fa027077674b]
+link Teacher to MonitorProgress--><g id="link_Teacher_MonitorProgress"><path d="M856.86,321.59 C776.09,314.11 533.88,288.62 339.5,236.5 C314.28,229.74 287.14,219.76 264.45,210.61 " fill="none" id="Teacher-to-MonitorProgress" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="259.68,208.68,266.5056,215.78,264.3105,210.5665,269.524,208.3713,259.68,208.68" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[8c9265e9f528d3319e7c6ba04191ce0c]
+link SystemAdmin to Deploy--><g id="link_SystemAdmin_Deploy"><path d="M1266.16,88.1 C1254.43,94.66 1242.52,101.6 1231.5,108.5 C1203.63,125.95 1173.32,147.99 1151.93,164.1 " fill="none" id="SystemAdmin-to-Deploy" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1147.77,167.24,1157.3662,165.0235,1151.7648,164.2331,1152.5552,158.6318,1147.77,167.24" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[f00cb89608728e318a8ca8adb31a577c]
+reverse link ManageGames to SystemAdmin--><g id="link_ManageGames_SystemAdmin"><path d="M1535.76,166.07 C1517.66,149.34 1490.19,125.52 1463.5,108.5 C1448.85,99.16 1432.47,90.38 1416.54,82.62 " fill="none" id="ManageGames-backto-SystemAdmin" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1539.7,169.73,1535.8145,160.68,1536.0315,166.3327,1530.3788,166.5496,1539.7,169.73" style="stroke:#000000;stroke-width:1.0;"/></g><!--MD5=[80ccf1759c0c9a8c478964a78476baed]
+@startuml
+!theme plain
+
+actor Student
+actor Teacher
+actor SystemAdmin as "System Administrator"
+
+rectangle "Computational Thinking Game Web App" {
+  (Deploy via QR-Code) as (Deploy)
+  (Play Bebras-Inspired Games) as (PlayGames)
+  (View Game Instructions) as (ViewInstructions)
+  (Compete in Challenges) as (Compete)
+  (Collaborate on Puzzles) as (Collaborate)
+  (View Leaderboards) as (ViewLeaderboards)
+  (Submit Feedback) as (SubmitFeedback)
+  (Manage Games) as (ManageGames)
+  (Monitor Student Progress) as (MonitorProgress)
+}
+
+Student -u-> (Deploy)
+Student -d-> (PlayGames)
+Student -r-> (ViewInstructions)
+Student -l-> (Compete)
+Student -u-> (Collaborate)
+Student -d-> (ViewLeaderboards)
+Student - -> (SubmitFeedback)
+Teacher -u-> (ManageGames)
+Teacher -d-> (MonitorProgress)
+SystemAdmin - -> (Deploy)
+SystemAdmin -l-> (ManageGames)
+
+@enduml
+
+@startuml
+
+
+
+
+
+
+
+<style>
+  root {
+    BackgroundColor white
+    FontColor black
+    FontName Verdana
+    HyperLinkColor blue
+    LineColor black
+    LineThickness 1
+    Margin 5
+  }
+  caption {
+    LineThickness 0
+  }
+  footer {
+    LineThickness 0
+  }
+  header {
+    LineThickness 0
+  }
+  node {
+    MaximumWidth 300
+  }
+  title {
+    FontSize 22
+    LineThickness 0
+  }
+</style>
+
+skinparam ArrowLollipopColor black
+skinparam BackgroundColor white
+skinparam DefaultFontName Verdana
+skinparam DefaultMonospacedFontName Courier
+skinparam LifelineStrategy nosolid
+skinparam ParticipantPadding 10
+skinparam SequenceLifeLineBorderColor black
+skinparam Shadowing false
+skinparam UseBetaStyle true
+
+skinparam Activity {
+  BackgroundColor white
+  BarColor black
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam Boundary {
+  FontColor black
+}
+skinparam Box {
+  Padding 5
+}
+skinparam CircledCharacter {
+  FontColor black
+  FontName Courier
+  Radius 9
+}
+skinparam Class {
+  BackgroundColor white
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam ClassAttribute {
+  FontColor black
+  FontName Verdana
+}
+skinparam ClassStereotype {
+  FontColor black
+  FontName Verdana
+}
+skinparam Footer {
+  FontColor black
+  FontName Verdana
+}
+skinparam Header {
+  FontColor black
+  FontName Verdana
+}
+skinparam Hyperlink {
+  Color blue
+}
+skinparam IconPackage {
+  Color black
+  BackgroundColor white
+}
+skinparam IconPrivate {
+  Color black
+  BackgroundColor white
+}
+skinparam IconProtected {
+  Color black
+  BackgroundColor white
+}
+skinparam IconPublic {
+  Color black
+  BackgroundColor white
+}
+skinparam Note {
+  FontColor black
+  FontName Verdana
+}
+skinparam Object {
+  BorderColor black
+}
+skinparam Package {
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam State {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeA {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeC {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeE {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeI {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeN {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam UseCaseStereoType {
+  FontColor black
+  FontName Verdana
+}
+
+actor Student
+actor Teacher
+actor SystemAdmin as "System Administrator"
+
+rectangle "Computational Thinking Game Web App" {
+  (Deploy via QR-Code) as (Deploy)
+  (Play Bebras-Inspired Games) as (PlayGames)
+  (View Game Instructions) as (ViewInstructions)
+  (Compete in Challenges) as (Compete)
+  (Collaborate on Puzzles) as (Collaborate)
+  (View Leaderboards) as (ViewLeaderboards)
+  (Submit Feedback) as (SubmitFeedback)
+  (Manage Games) as (ManageGames)
+  (Monitor Student Progress) as (MonitorProgress)
+}
+
+Student -u-> (Deploy)
+Student -d-> (PlayGames)
+Student -r-> (ViewInstructions)
+Student -l-> (Compete)
+Student -u-> (Collaborate)
+Student -d-> (ViewLeaderboards)
+Student - -> (SubmitFeedback)
+Teacher -u-> (ManageGames)
+Teacher -d-> (MonitorProgress)
+SystemAdmin - -> (Deploy)
+SystemAdmin -l-> (ManageGames)
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 BST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

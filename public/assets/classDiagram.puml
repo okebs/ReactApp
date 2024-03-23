@@ -1,0 +1,54 @@
+@startuml
+
+class ShapeMatchingGame {
+  -initialDrawers: Drawer[]
+  -currentShape: Shape
+  +onDragEnd(result: any): void
+  +renderDrawers(): JSX.Element
+  +handleDrawerClick(drawer: Drawer): void
+  +getImagePath(shape: Shape): string
+}
+
+class BallSortGame {
+  -initialTubes: Tube[]
+  +onDragEnd(result: DropResult): void
+  +checkWinCondition(): void
+  +getTubeImagePath(id: string): string
+}
+
+class EncryptionGame {
+  -userInput: string
+  -timer: number
+  -isGameOver: boolean
+  +checkSolution(): void
+}
+
+class GreedyTrolls {
+  -coinsState: CoinItem[]
+  +onDragEnd(result: DropResult): void
+  +checkWinCondition(currentSequence: CoinType[]): void
+  +getImagePath(type: CoinType): string
+}
+
+class QRCodeGenerator {
+  +qrCodeValue: string
+}
+
+class App {
+  +RouterSetup(): JSX.Element
+}
+
+class StrictModeDroppable {
+  -enabled: boolean
+}
+
+ShapeMatchingGame --> "1" Drawer
+BallSortGame --> "n" Tube : contains >
+Tube --> "n" Ball : contains >
+App -down-> ShapeMatchingGame : navigates >
+App -down-> BallSortGame : navigates >
+App -down-> EncryptionGame : navigates >
+App -down-> GreedyTrolls : navigates >
+App -down-> QRCodeGenerator : navigates >
+
+@enduml

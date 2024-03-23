@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DragDropContext,DraggableProvided, DroppableProvided, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext,DraggableProvided, DroppableProvided, Draggable, DropResult, DragUpdate, ResponderProvided } from 'react-beautiful-dnd';
 import { StrictModeDroppable } from './StrictModeDroppable';
 import styles from '../Styling/ShapeMatchingGame.module.css';
 
@@ -35,8 +35,19 @@ const ShapeMatchingGame: React.FC = () => {
   const [drawers, setDrawers] = useState<Drawer[]>(initialDrawers);
   const [currentShape, setCurrentShape] = useState<Shape>('circle');
 
+  const onDragUpdate = (update: DragUpdate, provided: ResponderProvided) => {
+    const destinationId = update.destination?.droppableId;
+    console.log('Hovering over drawer:', destinationId);
+  };
+
   const onDragEnd = (result: any) => {
+    console.log('Destination:', result.destination);
+    console.log('Source:', result.source);
+
     const { source, destination } = result;
+
+    // Log the result for debugging
+    console.log('Drag result:', result);
 
     // Dropped outside a droppable area
     if (!destination) return;
@@ -44,6 +55,7 @@ const ShapeMatchingGame: React.FC = () => {
     const drawer = drawers.find(d => d.id === destination.droppableId);
 
     if (drawer && currentShape === drawer.requiredShape) {
+      console.log('Correct shape, unlocking drawer.');
       setCurrentShape(drawer.content);
       setDrawers(prevDrawers =>
         prevDrawers.map(d => d.id === drawer.id ? { ...d, isOpen: true } : d)
@@ -53,7 +65,8 @@ const ShapeMatchingGame: React.FC = () => {
         alert('You found the key and completed the game!');
       }
     } else {
-      alert('This shape does not fit in this drawer.');
+      console.log('Incorrect shape, not unlocking.');
+      alert('This shape does not fit in this drawer!');
     }
   };
 
@@ -66,7 +79,7 @@ const ShapeMatchingGame: React.FC = () => {
               ref={provided.innerRef}
               {...provided.droppableProps}
               // Use `styles` to reference your CSS modules
-              className={`${styles.drawer} ${styles[`drawer-${drawer.id}`]}`}>
+              className={`${styles.drawer} ${styles[drawer.id]}`}>
               {/* If the drawer is open, show its contents, otherwise show a handle or placeholder */}
               {drawer.isOpen ? (
                 <img src={getImagePath(drawer.content)} alt={drawer.content} className={styles.shape} />
@@ -78,22 +91,6 @@ const ShapeMatchingGame: React.FC = () => {
         </StrictModeDroppable>
       ));
     };      
-
-
-      // Handle click events on the drawers
-  const handleDrawerClick = (drawer: Drawer) => {
-    // Check if the currentShape matches the requiredShape to unlock the drawer
-    if (currentShape === drawer.requiredShape) {
-      setCurrentShape(drawer.content); // Pick up the new shape
-      setDrawers(prevDrawers =>
-        prevDrawers.map(d => d.id === drawer.id ? { ...d, isOpen: true } : d)
-      );
-      // Additional logic if the content is the key...
-    } else {
-      // Inform the user that the shape doesn't fit
-      alert('This shape does not fit in this drawer.');
-    }
-  };
 
   const gameBoard = '../assets/shape-match/2021-IS-03-dresser.svg';
 
@@ -126,17 +123,16 @@ const ShapeMatchingGame: React.FC = () => {
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
+    <DragDropContext onDragEnd={onDragEnd} onDragUpdate={onDragUpdate}>
       <div className="game-board">
-        <img src={gameBoard} alt="Game Board" />
         {renderDrawers()} {/* This will render the drawers on the game board */}
         <StrictModeDroppable droppableId="currentShapeArea">
           {(provided: DroppableProvided) => (
             <div 
               ref={provided.innerRef}
               {...provided.droppableProps}
-              className="current-shape-area"
             >
+              <img src={gameBoard} alt="Game Board" />
               <Draggable draggableId="currentShape" index={0}>
                 {(provided: DraggableProvided) => (
                   <div
@@ -145,7 +141,7 @@ const ShapeMatchingGame: React.FC = () => {
                     {...provided.dragHandleProps}
                     style={{...provided.draggableProps.style}}
                   >
-                    <img src="/assets/shape-match/blue-circle-svgrepo-com.svg" alt="Current Shape" className="current-shape"/>
+                    <img src="/assets/shape-match/blue-circle-svgrepo-com.svg" alt="Current Shape"/>
                   </div>
                 )}
               </Draggable>

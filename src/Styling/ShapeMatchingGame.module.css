@@ -3,21 +3,86 @@
   }
   
   .drawer {
-    position: absolute;
     cursor: pointer; /* to indicate it's clickable */
-    background-color: rgba(255, 0, 0, 0.3); /* Red background with 30% opacity */
-    border: 10px solid red; /* Red border to make it more visible */
+    background-color: rgb(255, 0, 0); /* Fully red background without opacity */
+    width: 18px;
+    height: 18px;
   }
   
-  /* Example for a specific drawer */
   .drawer.drawer-1 {
-    width: 50px;
-    height: 50px;
-    top: 100px;
-    left: 50px;
+    position: absolute;
+    top: 350px;
+    left: 94px;
   }
-  
-  .shape {
-    /* Styles for the shape images */
+  .drawer.drawer-2 {
+    position:absolute;
+    top: 350px;
+    left: 216px;
   }
+  .drawer.drawer-3 {
+    position: absolute;
+    top: 350px;
+    left: 339px;
+  }
+  .drawer.drawer-4 {
+    position: absolute;
+    top: 350px;
+    left: 462px;
+  }
+  .drawer.drawer-5 {
+    position: absolute;
+    top: 350px;
+    left: 585px;
+  }
+  .drawer.drawer-6 {
+    position: absolute;
+    top: 470px;
+    left: 94px;
+  }
+  .drawer.drawer-7 {
+    position: absolute;
+    top: 470px;
+    left: 216px;
+  }
+  .drawer.drawer-8 {
+    position: absolute;
+    top: 470px;
+    left: 339px;
+  }
+  .drawer.drawer-9 {
+    position: absolute;
+    top: 470px;
+    left: 462px;
+  }
+  .drawer.drawer-10 {
+    position: absolute;
+    top: 470px;
+    left: 585px;
+  }
+  .drawer.drawer-11 {
+    position: absolute;
+    top: 593px;
+    left: 94px;
+  }
+  .drawer.drawer-12 {
+    position: absolute;
+    top: 593px;
+    left: 216px;
+  }
+  .drawer.drawer-13 {
+    position: absolute;
+    top: 593px;
+    left: 339px;
+  }
+  .drawer.drawer-14 {
+    position: absolute;
+    top: 593px;
+    left: 462px;
+  }
+  .drawer.drawer-15 {
+    position: absolute;
+    top: 593px;
+    left: 585px;
+  }
+
   

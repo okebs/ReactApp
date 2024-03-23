@@ -1,0 +1,32 @@
+@startuml
+!theme plain
+
+actor Student
+actor Teacher
+actor SystemAdmin as "System Administrator"
+
+rectangle "Computational Thinking Game Web App" {
+  (Deploy via QR-Code) as (Deploy)
+  (Play Bebras-Inspired Games) as (PlayGames)
+  (View Game Instructions) as (ViewInstructions)
+  (Compete in Challenges) as (Compete)
+  (Collaborate on Puzzles) as (Collaborate)
+  (View Leaderboards) as (ViewLeaderboards)
+  (Submit Feedback) as (SubmitFeedback)
+  (Manage Games) as (ManageGames)
+  (Monitor Student Progress) as (MonitorProgress)
+}
+
+Student -u-> (Deploy)
+Student -d-> (PlayGames)
+Student -r-> (ViewInstructions)
+Student -l-> (Compete)
+Student -u-> (Collaborate)
+Student -d-> (ViewLeaderboards)
+Student --> (SubmitFeedback)
+Teacher -u-> (ManageGames)
+Teacher -d-> (MonitorProgress)
+SystemAdmin --> (Deploy)
+SystemAdmin -l-> (ManageGames)
+
+@enduml
