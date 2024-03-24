@@ -1,13 +1,13 @@
 import React from 'react';
-import QRCodeGenerator from './QRCodeGenerator';
+// import QRCodeGenerator from './QRCodeGenerator';
 
-function GeneratorPage() {
-  return (
-    <div>
-      <h1>QR Code Generator Page</h1>
-      <QRCodeGenerator />
-    </div>
-  );
-}
+// function GeneratorPage() {
+//   return (
+//     <div>
+//       <h1>QR Code Generator Page</h1>
+//       <QRCodeGenerator />
+//     </div>
+//   );
+// }
 
-export default GeneratorPage;
+// export default GeneratorPage;

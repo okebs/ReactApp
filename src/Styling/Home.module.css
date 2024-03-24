@@ -1,0 +1,66 @@
+/* Add this CSS to your Home component's CSS file */
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This takes the full height of the viewport */
+    background: #6a1b9a; /* Purple background like your example */
+    color: white;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .welcomeText {
+    margin-bottom: 20px; /* Spacing between the text and the buttons */
+    text-align: center;
+  }
+  
+  .gameButtons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line on small screens */
+  }
+  
+  button {
+    margin: 10px;
+    padding: 15px 30px; /* Larger padding for bigger buttons */
+    font-size: 18px; /* Larger font size */
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px; /* Rounded borders */
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adds shadow for depth */
+  }
+  
+  /* Specific colors for each button */
+  button.encrypt {
+    background-color: #e53935; /* Red */
+  }
+  
+  button.greedyTrolls {
+    background-color: #43a047; /* Green */
+  }
+  
+  button.ballSort {
+    background-color: #fb8c00; /* Orange */
+  }
+  
+  button.shapeMatch {
+    background-color: #fdd835; /* Yellow */
+  }
+  
+  /* Hover effects */
+  button:hover {
+    transform: scale(1.05); /* Slightly enlarge the buttons */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Darker shadow for a "lifted" effect */
+  }
+  
+  /* Apply these styles to the div wrapping your game buttons */
+  .gameSelection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
