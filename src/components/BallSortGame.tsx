@@ -89,30 +89,30 @@ const BallSortGame: React.FC = () => {
     };
 
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-          <img src={ruleSet} alt="Rule Set" className={styles.ruleSetImage} />
-          <div className={styles.tubesContainer}>
-            {tubes.map((tube, index) => (
-              <StrictModeDroppable droppableId={tube.id} key={tube.id}>
-                {(provided) => (
-                  <div ref={provided.innerRef} {...provided.droppableProps} >
-                    <img src={getTubeImagePath(tube.id)} alt="Tube" />
-                    {tube.balls.map((ball, index) => (
-                      <Draggable draggableId={ball.id} index={index} key={ball.id} isDragDisabled={index !== 0}>
-                        {(provided) => (
-                          <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className={`${styles.ball} ${styles[ball.color]}`}>
-                            {/* Ball representation */}
-                          </div>
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </StrictModeDroppable>
-            ))}
-          </div>
-        </DragDropContext>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <img src={ruleSet} alt="Rule Set" className={styles.ruleSetImage} />
+        <div className={styles.tubesContainer}>
+          {tubes.map((tube, index) => (
+            <StrictModeDroppable droppableId={tube.id} key={tube.id}>
+              {(provided) => (
+                <div ref={provided.innerRef} {...provided.droppableProps} >
+                  <img src={getTubeImagePath(tube.id)} alt="Tube" />
+                  {tube.balls.map((ball, index) => (
+                    <Draggable draggableId={ball.id} index={index} key={ball.id} isDragDisabled={index !== 0}>
+                      {(provided) => (
+                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className={`${styles.ball} ${styles[ball.color]}`}>
+                          {/* Ball representation */}
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </StrictModeDroppable>
+          ))}
+        </div>
+      </DragDropContext>
       );
     };
     

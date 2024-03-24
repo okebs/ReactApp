@@ -1,88 +1,94 @@
 .game-board {
     position: relative;
   }
+
+  .shape {
+    width: 50px;
+    height: 50px;
+  }
   
   .drawer {
     cursor: pointer; /* to indicate it's clickable */
-    background-color: rgb(255, 0, 0); /* Fully red background without opacity */
-    width: 18px;
-    height: 18px;
+    position: absolute;
+    gap:20px;
+    background-color: rgb(255, 0, 0, 0.2); /* Fully red background without opacity */
+    border: 2px solid black;
+    width: 34px;
+    height: 34px;
+  }
+
+  .draggingOver {
+    background-color: rgb(144, 238, 144, 0.5); /* color when a draggable item is over the droppable */
+  }
+  .openDrawer {
+    background-color: black;
   }
   
+
+
   .drawer.drawer-1 {
-    position: absolute;
-    top: 350px;
-    left: 94px;
+    top: 334px; /*350-334=16*/
+    left: 84px; /*94-84=10*/
   }
   .drawer.drawer-2 {
-    position:absolute;
-    top: 350px;
-    left: 216px;
+    top: 334px;
+    left: 207px;
   }
   .drawer.drawer-3 {
-    position: absolute;
-    top: 350px;
-    left: 339px;
+    top: 334px;
+    left: 330px;
   }
   .drawer.drawer-4 {
-    position: absolute;
-    top: 350px;
-    left: 462px;
+    top: 334px;
+    left: 452px;
   }
   .drawer.drawer-5 {
-    position: absolute;
-    top: 350px;
-    left: 585px;
+    top: 334px;
+    left: 575px;
   }
+
+
   .drawer.drawer-6 {
-    position: absolute;
-    top: 470px;
-    left: 94px;
+    top: 456px;
+    left: 84px;
   }
   .drawer.drawer-7 {
-    position: absolute;
-    top: 470px;
-    left: 216px;
+    top: 456px;
+    left: 207px;
   }
   .drawer.drawer-8 {
-    position: absolute;
-    top: 470px;
-    left: 339px;
+    top: 456px;
+    left: 330px;
   }
   .drawer.drawer-9 {
-    position: absolute;
-    top: 470px;
-    left: 462px;
+    top: 456px;
+    left: 452px;
   }
   .drawer.drawer-10 {
-    position: absolute;
-    top: 470px;
-    left: 585px;
+    top: 456px;
+    left: 575px;
   }
+
+
   .drawer.drawer-11 {
-    position: absolute;
-    top: 593px;
-    left: 94px;
+    top: 578px;
+    left: 84px;
   }
   .drawer.drawer-12 {
-    position: absolute;
-    top: 593px;
-    left: 216px;
+    top: 578px;
+    left: 207px;
   }
   .drawer.drawer-13 {
-    position: absolute;
-    top: 593px;
-    left: 339px;
+    top: 578px;
+    left: 330px;
   }
   .drawer.drawer-14 {
-    position: absolute;
-    top: 593px;
-    left: 462px;
+    top: 578px;
+    left: 452px;
   }
   .drawer.drawer-15 {
-    position: absolute;
-    top: 593px;
-    left: 585px;
+    top: 578px;
+    left: 575px;
   }
 
   
