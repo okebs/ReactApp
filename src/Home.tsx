@@ -1,12 +1,7 @@
-// function Home() {
-//     const name = 'Sam';
-//     return <h1>Welcome back, {name}</h1>;
-// }
-
-// export default Home;
 import React, { useState } from 'react';
 import QRCodeGenerator from './components/QRCodeGenerator';
 import styles from './Styling/Home.module.css';
+import { Link } from 'react-router-dom';
 
 // Define a type for your game keys
 type GameKey = 'encrypt' | 'greedyTrolls' | 'ballSort' | 'shapeMatch'; // Add all game keys here
@@ -24,32 +19,43 @@ const gameLinks: GameLinks = {
 };
 
 function Home() {
-  const [selectedGame, setSelectedGame] = useState<string>('');
-
-  const handleGameSelection = (game: GameKey) => {
-    setSelectedGame(gameLinks[game]);
-  };
-
-  return (
-    <div className={styles.homeContainer}>
-        <div className={styles.welcomeText}>
-            <h1>Welcome back</h1>
+    const [selectedGame, setSelectedGame] = useState<string>('');
+  
+    const handleGameSelection = (game: GameKey) => {
+      setSelectedGame(gameLinks[game]);
+    };
+  
+    return (
+        <div className={styles.homeContainer}>
+          <div className={styles.welcomeText}>
+            <h1>Welcome</h1>
             <h2>Which game would you like to play?</h2>
-        </div>
-        <div className={styles.gameButtons}> {/* Make sure to use this class for the container of the buttons */}
+          </div>
+          <div className={styles.gameButtons}>
             {Object.keys(gameLinks).map((game) => (
               <button
                 key={game}
                 onClick={() => handleGameSelection(game as GameKey)}
-                className={`${styles.button} ${styles[game]}`} // Here we dynamically assign the specific class for each game
+                className={`${styles.button} ${styles[game]}`}
               >
-                {game}
+                {game.charAt(0).toUpperCase() + game.slice(1)}
               </button>
             ))}
+          </div>
+          {selectedGame && (
+            <>
+                <QRCodeGenerator link={selectedGame} />
+                {/* Display the clickable link below the QR code for testing purposes */}
+                <div className={styles.testLinkContainer}>
+                <Link to={selectedGame.replace('http://localhost:5173', '')} className={styles.testLink}>
+                    Test Link: {selectedGame}
+                </Link>
+                </div>
+            </>
+            )}
         </div>
-      {selectedGame && <QRCodeGenerator link={selectedGame} />}
-    </div>
-  );
-}
+      );
+    }
+  
 
 export default Home;

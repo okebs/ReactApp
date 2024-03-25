@@ -89,6 +89,7 @@ const BallSortGame: React.FC = () => {
     };
 
     return (
+      <div className={styles.homeContainer}>
       <DragDropContext onDragEnd={onDragEnd}>
         <img src={ruleSet} alt="Rule Set" className={styles.ruleSetImage} />
         <div className={styles.tubesContainer}>
@@ -113,6 +114,7 @@ const BallSortGame: React.FC = () => {
           ))}
         </div>
       </DragDropContext>
+      </div>
       );
     };
     

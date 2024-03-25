@@ -1,3 +1,13 @@
+.homeContainer{
+  background: #6a1b9a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This takes the full height of the viewport */
+  width: 100vw;
+}
+
 .tube {
     width: 60px; /* Adjust as needed for the width of the tube */
     height: 320px; /* Adjust as needed for the height of the tube */
@@ -11,9 +21,9 @@
     margin: 20px auto; /* Center the tube on the page */
   }
 
-  .troll-map {
+  .trollMap {
     max-width: 100%; /* Make sure it doesn't overflow its container */
-    max-height: 500px; /* Adjust this to the maximum height you want */
+    max-height: 350px; /* Adjust this to the maximum height you want */
     object-fit: contain; /* This will ensure that the aspect ratio is maintained */
     display: block; /* Block display for images can sometimes help with sizing */
     margin: 0 auto; /* Center it horizontally if there's extra space */

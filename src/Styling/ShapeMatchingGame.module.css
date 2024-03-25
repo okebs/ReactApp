@@ -1,3 +1,13 @@
+.homeContainer{
+  background: #6a1b9a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This takes the full height of the viewport */
+  width: 100vw;
+}
+
 .game-board {
     position: relative;
   }
@@ -23,72 +33,71 @@
   .openDrawer {
     background-color: black;
   }
-  
 
 
   .drawer.drawer-1 {
-    top: 334px; /*350-334=16*/
-    left: 84px; /*94-84=10*/
+    top: 169px; /*334-169=*/
+    left: 504px; 
   }
   .drawer.drawer-2 {
-    top: 334px;
-    left: 207px;
+    top: 169px;
+    left: 627px;
   }
   .drawer.drawer-3 {
-    top: 334px;
-    left: 330px;
+    top: 169px;
+    left: 749px;
   }
   .drawer.drawer-4 {
-    top: 334px;
-    left: 452px;
+    top: 169px;
+    left: 872px;
   }
   .drawer.drawer-5 {
-    top: 334px;
-    left: 575px;
+    top: 169px;
+    left: 995px; /*995-575=*/
   }
 
 
   .drawer.drawer-6 {
-    top: 456px;
-    left: 84px;
+    top: 291px;
+    left: 504px;
   }
   .drawer.drawer-7 {
-    top: 456px;
-    left: 207px;
+    top: 291px;
+    left: 627px;
   }
   .drawer.drawer-8 {
-    top: 456px;
-    left: 330px;
+    top: 291px;
+    left: 749px;
   }
   .drawer.drawer-9 {
-    top: 456px;
-    left: 452px;
+    top: 291px;
+    left: 872px;
   }
   .drawer.drawer-10 {
-    top: 456px;
-    left: 575px;
+    top: 291px;
+    left: 995px;
   }
 
 
   .drawer.drawer-11 {
-    top: 578px;
-    left: 84px;
+    top: 413px;
+    left: 504px;
   }
   .drawer.drawer-12 {
-    top: 578px;
-    left: 207px;
+    top: 413px;
+    left: 627px;
   }
   .drawer.drawer-13 {
-    top: 578px;
-    left: 330px;
+    top: 413px;
+    left: 749px;
   }
   .drawer.drawer-14 {
-    top: 578px;
-    left: 452px;
+    top: 413px;
+    left: 872px;
   }
   .drawer.drawer-15 {
-    top: 578px;
-    left: 575px;
+    top: 413px;
+    left: 995px;
   }
 
   

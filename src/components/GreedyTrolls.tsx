@@ -78,8 +78,9 @@ const GreedyTrolls: React.FC = () => {
   };
 
   return (
+    <div className={styles.homeContainer}>
     <DragDropContext onDragEnd={onDragEnd}>
-    <img src={mapImagePath} alt="Troll Map" />
+    <img src={mapImagePath} alt="Troll Map" className={styles.trollMap}/>
     <div className="game-container" style={{ display: 'flex', alignItems: 'start' }}>
         {/* Droppable area for the tube */}
         <StrictModeDroppable droppableId="tube" direction="vertical">
@@ -137,6 +138,7 @@ const GreedyTrolls: React.FC = () => {
         </StrictModeDroppable>
         </div>
     </DragDropContext>
+    </div>
     );
 };
 

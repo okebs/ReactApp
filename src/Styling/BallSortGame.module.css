@@ -1,3 +1,13 @@
+.homeContainer{
+  background: #6a1b9a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This takes the full height of the viewport */
+  width: 100vw;
+}
+
 .ruleSetImage {
     display: block;
     max-width: 100%;

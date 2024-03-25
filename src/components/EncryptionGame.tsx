@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from '../Styling/EncryptionGame.module.css';
 
 // Define types for the component props
 type EncryptionGameProps = {
@@ -34,7 +35,7 @@ const EncryptionGame: React.FC<EncryptionGameProps> = ({ encryptedSentence, corr
   };
 
   return (
-    <div>
+    <div className={styles.homeContainer}>
       <h2>Decryption Challenge</h2>
       <img src={imagePath} alt="Octagon Cipher" />
       <p>Encrypted: {encryptedSentence}</p>

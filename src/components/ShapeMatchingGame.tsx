@@ -114,6 +114,7 @@ const ShapeMatchingGame: React.FC = () => {
   };
 
   return (
+    <div className={styles.homeContainer}>
     <DragDropContext onDragEnd={onDragEnd} onDragUpdate={onDragUpdate}>
       <div className="game-board">
         <StrictModeDroppable droppableId="currentShapeArea">
@@ -142,6 +143,7 @@ const ShapeMatchingGame: React.FC = () => {
         </StrictModeDroppable>
       </div>
     </DragDropContext>
+    </div>
   );
 };
 
