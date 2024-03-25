@@ -112,18 +112,37 @@ const ShapeMatchingGame: React.FC = () => {
         return ''; // Or a default image path
     }
   };
+/*
+window.addEventListener('resize', updateDrawerPositions
+);
+function updateDrawerPositions() {
+// Get the position and dimensions of the SVG image
+const gameBoardRect = document.querySelector('.gameBoard').getBoundingClientRect();
 
+// Calculate the new positions for each drawer
+drawers.forEach(drawer => {
+const drawerElement = document.querySelector(.${drawer.id});
+// Here you calculate the position based on the gameBoardRect and the desired placement
+// For example:
+drawerElement.style.left = ${(drawer.initialLeft / svgOriginalWidth) * gameBoardRect.width}px;
+drawerElement.style.top = ${(drawer.initialTop / svgOriginalHeight) * gameBoardRect.height}px;
+});
+}
+
+// Run initially to set positions
+updateDrawerPositions();
+*/
   return (
     <div className={styles.homeContainer}>
     <DragDropContext onDragEnd={onDragEnd} onDragUpdate={onDragUpdate}>
-      <div className="game-board">
+      <div className={styles.gameBoardcontainer}>
         <StrictModeDroppable droppableId="currentShapeArea">
           {(provided: DroppableProvided) => (
             <div 
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
-              <img src={gameBoard} alt="Game Board" />
+              <img src={gameBoard} alt="Game Board" className={styles.gameBoard}/>
               {renderDrawers()}
               <Draggable draggableId="currentShape" index={0}>
                 {(provided: DraggableProvided) => (

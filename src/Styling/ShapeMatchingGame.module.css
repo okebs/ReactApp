@@ -8,8 +8,30 @@
   width: 100vw;
 }
 
-.game-board {
+.gameBoard {
     position: relative;
+    max-width: 100%; /* Limit the size of the game board to the width of its container */
+    height: auto; /* Maintain the aspect ratio of the game board */
+  }
+  .gameBoardcontainer {
+    position: relative;
+    width: 80vw; /* Adjust this value to fit your design */
+    max-width: 800px; /* Example max width to maintain aspect ratio */
+    margin: auto; /* Centers the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* padding-bottom: 30%;
+    height: 0; */
+    
+  }
+  .gameBoardcontainer svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .shape {
@@ -23,8 +45,12 @@
     gap:20px;
     background-color: rgb(255, 0, 0, 0.2); /* Fully red background without opacity */
     border: 2px solid black;
-    width: 34px;
-    height: 34px;
+    /* width: 34px;
+    height: 34px; */
+    width: 4.25%;
+    height: 6.8%;
+    max-width: 100%;
+    
   }
 
   .draggingOver {
@@ -36,68 +62,75 @@
 
 
   .drawer.drawer-1 {
-    top: 169px; /*334-169=*/
-    left: 504px; 
+    top: 10%; 
+    left: 17%;
   }
   .drawer.drawer-2 {
-    top: 169px;
-    left: 627px;
+    top: 10%;
+    left: 32.2%;
   }
   .drawer.drawer-3 {
-    top: 169px;
-    left: 749px;
+    top: 10%;
+    left: 47.5%;
   }
   .drawer.drawer-4 {
-    top: 169px;
-    left: 872px;
+    top: 10%;
+    left: 62.9%;
   }
   .drawer.drawer-5 {
-    top: 169px;
-    left: 995px; /*995-575=*/
+    top: 10%;
+    left: 78.2%; /*995-575=*/
   }
 
 
   .drawer.drawer-6 {
-    top: 291px;
-    left: 504px;
+    top: 35%;
+    left: 17%;
   }
   .drawer.drawer-7 {
-    top: 291px;
-    left: 627px;
+    top: 35%;
+    left: 32.2%;
   }
   .drawer.drawer-8 {
-    top: 291px;
-    left: 749px;
+    top: 35%;
+    left: 47.5%;
   }
   .drawer.drawer-9 {
-    top: 291px;
-    left: 872px;
+    top: 35%;
+    left: 62.9%;
   }
   .drawer.drawer-10 {
-    top: 291px;
-    left: 995px;
+    top: 35%;
+    left: 78.2%;
   }
 
 
   .drawer.drawer-11 {
-    top: 413px;
-    left: 504px;
+    top: 60%;
+    left: 17%;
   }
   .drawer.drawer-12 {
-    top: 413px;
-    left: 627px;
+    top: 60%;
+    left: 32.2%;
   }
   .drawer.drawer-13 {
-    top: 413px;
-    left: 749px;
+    top: 60%;
+    left: 47.5%;
   }
   .drawer.drawer-14 {
-    top: 413px;
-    left: 872px;
+    top: 60%;
+    left: 62.9%;
   }
   .drawer.drawer-15 {
-    top: 413px;
-    left: 995px;
+    top: 60%;
+    left: 78.2%; /*995*/
   }
 
-  
+  @media (max-width: 900px) {
+    .drawer {
+      top: 5%; /* 10% of the viewport width */
+      left: 5%; /* 5% of the viewport width */
+      width: 5%;
+      height: 7%;
+    }
+  }
