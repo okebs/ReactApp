@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App' //main component
+import App from './components/App' //main component
 import './index.css'
 import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
 
 // Initialize Firebase with your project's configuration
@@ -18,6 +19,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+export const db = getFirestore(app);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
