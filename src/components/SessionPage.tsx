@@ -27,7 +27,7 @@ const GameSessionPage = () => {
 
       const data = docSnapshot.data();
       setGameId(data.gameId); // You can use this to display which game is being played
-      setPlayersCount(Object.keys(data.players || {}).length);
+      //setPlayersCount(Object.keys(data.players || {}).length);
 
       if (data.state === 'active') {
         navigate(`/${data.gameId}`); // Redirect to the game component
@@ -41,7 +41,7 @@ const GameSessionPage = () => {
     <div className={styles.homeContainer}>
       <h1>Game Session: {gameId}</h1>
       <h2>Waiting for teacher to begin game...</h2>
-      <p>Players connected: {playersCount}</p>
+      {/* <p>Players connected: {playersCount}</p> */}
     </div>
   );
 };

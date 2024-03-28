@@ -30,7 +30,6 @@ const BallSortGame: React.FC = () => {
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
 
-    // Early return conditions based on your game rules
     if (!destination) return;
 
     const sourceIndex = parseInt(source.droppableId.split('-')[1]) - 1;
@@ -39,8 +38,6 @@ const BallSortGame: React.FC = () => {
     const sourceTube = tubes[sourceIndex];
     const destinationTube = tubes[destinationIndex];
 
-    // Rule 2: When there is space in a tube, a ball can only be moved on a ball of the same colour
-    // Rule 3: Only one ball at the top of a tube can be moved at a time
     if (
         destinationTube.balls.length >= 3 ||
         destinationTube.balls.length > 0 && 
@@ -53,7 +50,7 @@ const BallSortGame: React.FC = () => {
     // Proceed with moving the ball
     const newTubes = Array.from(tubes);
     const [removedBall] = newTubes[sourceIndex].balls.splice(source.index, 1);
-    newTubes[destinationIndex].balls.unshift(removedBall); // Add to the top of the destination tube
+    newTubes[destinationIndex].balls.unshift(removedBall);
 
     setTubes(newTubes);
 

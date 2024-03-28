@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import QRCodeGenerator from './QRCodeGenerator';
 import styles from '../Styling/Home.module.css';
 import { db } from '../main';
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc, onSnapshot, Unsubscribe } from 'firebase/firestore';
 import { createNewGameSession } from '../services/GameSessions';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -25,7 +25,47 @@ function Home() {
     //const [selectedGame, setSelectedGame] = useState<string>('');
     const [sessionLink, setSessionLink] = useState<string>(''); // Add state to manage session link
     const [sessionId, setSessionId] = useState<string>('');
+    const [playerCount, setPlayerCount] = useState<number>(0);
+    const [sessionDocRef, setSessionDocRef] = useState(null);
     const navigate = useNavigate(); // Use navigate hook for redirection
+
+    const subscribeToSession = (sessionId: string) => {
+      const sessionDocRef = doc(db, 'gameSessions', sessionId);
+  
+      // This will create a real-time subscription to the Firestore document
+      const unsubscribe = onSnapshot(sessionDocRef, (doc) => {
+        if (doc.exists()) {
+          const data = doc.data();
+          // Assuming 'players' is an object where keys are player IDs
+          setPlayerCount(Object.keys(data.players || {}).length);
+        } else {
+          console.log('No such document!');
+        }
+      });
+  
+      // Optional: Return the unsubscribe function so you can call it when the component unmounts
+      return unsubscribe;
+    };
+
+    
+  // useEffect(() => {
+  //   let unsubscribe: Unsubscribe | null = null;
+
+  //   // Subscribe to session if a session ID is available
+  //   if (sessionId && playerDetails) {
+  //     joinGameSession(sessionId, playerDetails).catch((error) => {
+  //       console.error(error);
+  //       // Alert the user or handle the error appropriately in the UI
+  //     });
+  //   }
+
+  //   // Clean up the subscription when the component unmounts or sessionId changes
+  //   return () => {
+  //     if (unsubscribe) {
+  //       unsubscribe();
+  //     }
+  //   };
+  // }, [sessionId]);
   
     const handleCreateGameSession = async (gameId: GameKey) => {
       console.log(`Creating session for game: ${gameId}, teacher: teacher1`);
@@ -103,6 +143,7 @@ function Home() {
                   Join Game session
                 </a>
                 <button onClick={() => startGame(sessionId)}>Start Game</button>
+                {/* <h3>Player Count: {playerCount}</h3> */}
               </div>
             </>
             )}
