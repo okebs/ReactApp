@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useParams } from 'react-router-dom';
 import Home from './Home';
 import EncryptionGame from './EncryptionGame';
@@ -6,16 +5,12 @@ import GreedyTrolls from './GreedyTrolls';
 import BallSortGame from './BallSortGame';
 import ShapeMatchingGame from './ShapeMatchingGame';
 import GameSession from '../components/SessionPage';
-import { createNewGameSession } from '../services/GameSessions';
+import help from './help';
 
 function App() {
   return (
     <Router>
       <div>
-        {/* Here's an example of how you might use handleCreateGameSession in your UI */}
-        {/* <button onClick={() => handleCreateGameSession('encrypt', 'teacher1')}>
-        Create Game Session for Encryption Game </button> */}
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/game-session/:sessionId" element={<GameSession />} />

@@ -47,25 +47,6 @@ function Home() {
       return unsubscribe;
     };
 
-    
-  // useEffect(() => {
-  //   let unsubscribe: Unsubscribe | null = null;
-
-  //   // Subscribe to session if a session ID is available
-  //   if (sessionId && playerDetails) {
-  //     joinGameSession(sessionId, playerDetails).catch((error) => {
-  //       console.error(error);
-  //       // Alert the user or handle the error appropriately in the UI
-  //     });
-  //   }
-
-  //   // Clean up the subscription when the component unmounts or sessionId changes
-  //   return () => {
-  //     if (unsubscribe) {
-  //       unsubscribe();
-  //     }
-  //   };
-  // }, [sessionId]);
   
     const handleCreateGameSession = async (gameId: GameKey) => {
       console.log(`Creating session for game: ${gameId}, teacher: teacher1`);
@@ -143,13 +124,13 @@ function Home() {
                   Join Game session
                 </a>
                 <button onClick={() => startGame(sessionId)}>Start Game</button>
-                {/* <h3>Player Count: {playerCount}</h3> */}
+                <h3>Player Count: {playerCount}</h3>
               </div>
             </>
             )}
         </div>
       );
-    }
+}
   
 
 export default Home;
