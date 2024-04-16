@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { db } from '../main'; // Adjust the path to your Firebase configuration file
 import { doc, onSnapshot } from 'firebase/firestore';
+import { joinGameSession } from '../services/GameSessions';
 import styles from '../Styling/SessionPage.module.css';
 
 const GameSessionPage = () => {
@@ -15,6 +16,18 @@ const GameSessionPage = () => {
       navigate('/');
       return;
     }
+
+    const joinSession = async () => {
+      try {
+        // Join the game session and add the user as a player
+        await joinGameSession(sessionId);
+      } catch (error) {
+        console.error('Error joining session:', error);
+        navigate('/');
+      }
+    };
+
+    joinSession();
 
     const sessionDocRef = doc(db, 'gameSessions', sessionId);
     const unsubscribe = onSnapshot(sessionDocRef, (docSnapshot) => {

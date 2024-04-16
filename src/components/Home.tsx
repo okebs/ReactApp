@@ -26,6 +26,7 @@ function Home() {
     const [sessionLink, setSessionLink] = useState<string>(''); // Add state to manage session link
     const [sessionId, setSessionId] = useState<string>('');
     const [playerCount, setPlayerCount] = useState<number>(0);
+    const [unsubscribe, setUnsubscribe] = useState(null);
     const [sessionDocRef, setSessionDocRef] = useState(null);
     const navigate = useNavigate(); // Use navigate hook for redirection
 
@@ -36,8 +37,10 @@ function Home() {
       const unsubscribe = onSnapshot(sessionDocRef, (doc) => {
         if (doc.exists()) {
           const data = doc.data();
+          console.log('Document data:', data); // Add this to check the incoming data
           // Assuming 'players' is an object where keys are player IDs
-          setPlayerCount(Object.keys(data.players || {}).length);
+          const newPlayerCount = setPlayerCount(Object.keys(data.players || {}).length);
+          console.log('New player count:', newPlayerCount);
         } else {
           console.log('No such document!');
         }
@@ -57,7 +60,8 @@ function Home() {
           const gameSessionLink = `${window.location.origin}/game-session/${sessionId}`;
           setSessionId(sessionId);
           setSessionLink(gameSessionLink);
-          console.log(`Session Link: ${gameSessionLink}`);
+          //console.log(`Session Link: ${gameSessionLink}`);
+          subscribeToSession(sessionId);
           //navigate(`/game-session/${sessionId}`); // Uncomment this line if you want to navigate to the game session after creation
         }  
         else {
@@ -71,7 +75,7 @@ function Home() {
   
     const handleGameSelection = async (game: GameKey) => {
       //setSelectedGame(gameLinks[game]);
-      console.log(`Game selected: ${game}`);
+      //console.log(`Game selected: ${game}`);
       await handleCreateGameSession(game).catch((error) => {
         console.error('Error in handleGameSelection:', error);
       });

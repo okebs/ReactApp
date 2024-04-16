@@ -1,7 +1,6 @@
 export type Player = {
-  playerId:string;  
-  name: string;
-    score: number;
+  playerId:string;
+  score: number;
   };
   
   export type GameSession = {

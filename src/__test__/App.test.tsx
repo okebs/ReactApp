@@ -30,7 +30,7 @@ describe('Game Session Service', () => {
     const mockUpdateDoc = jest.spyOn(firebaseFirestore, 'updateDoc').mockResolvedValueOnce(undefined);
   
     // Test the function
-    await joinGameSession('mockSessionId', playerDetails);
+    await joinGameSession('mockSessionId');
     // Check if Firestore's updateDoc was called correctly
     expect(mockUpdateDoc).toHaveBeenCalledWith(expect.anything(), { [`players.${playerDetails.playerId}`]: playerDetails });
     // Clean up mocks
