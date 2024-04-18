@@ -25,7 +25,9 @@ export const joinGameSession = async (sessionId: string) => {
       const newGuestId = `Guest${nextGuestNumber}`;
       const playerDetails: Player = {
         playerId: newGuestId,
-        score: 0,
+        timeStarted: null, // Initially null, will be set when the game starts
+        timeFinished: null,
+        duration: null
       };
 
       // Update the session document with the new player details
@@ -33,6 +35,7 @@ export const joinGameSession = async (sessionId: string) => {
         [`players.${newGuestId}`]: playerDetails,
       });
 
+      return newGuestId;
     } else {
       console.error("No such session!");
       throw new Error("No such session!");
@@ -63,3 +66,46 @@ export const createNewGameSession = async (gameId: string, teacherId: string) =>
     throw new Error(`Error creating game session: ${error}`);
   }
 };
+
+export const markGameStart = async (sessionId: string, playerId: string) => {
+  const sessionDocRef = doc(db, 'gameSessions', sessionId);
+  const currentTime = Date.now();
+
+  await updateDoc(sessionDocRef, {
+    [`players.${playerId}.timeStarted`]: currentTime,
+  });
+
+  console.log("Start")
+};
+
+export const markGameFinish = async (sessionId: string, playerId: string) => {
+  const sessionDocRef = doc(db, 'gameSessions', sessionId);
+  const currentTime = Date.now();
+
+  const sessionDoc = await getDoc(sessionDocRef);
+  if (sessionDoc.exists()) {
+    const player = sessionDoc.data().players[playerId];
+    if(player.timeStarted) {
+      const durationMs = currentTime - player.timeStarted;
+      const durationSeconds = Math.floor(durationMs / 1000);
+      const minutes = Math.floor(durationSeconds / 60);
+      const seconds = durationSeconds % 60; 
+
+      await updateDoc(sessionDocRef, {
+        [`players.${playerId}.timeFinished`]: currentTime,
+        [`players.${playerId}.duration`]: durationSeconds, // Store duration in seconds for easier calculations later
+      });
+
+      //console.log(`Time Started: ${player.timeStarted} and Current Time: ${currentTime}`);
+      console.log(`Player ${playerId} finished in ${durationSeconds} second(s)`);
+
+      localStorage.setItem('gameFinished', JSON.stringify({
+        playerId: playerId,
+        time: `${minutes} minute(s) and ${seconds} second(s)`
+      }));
+
+      //alert(`Player ${playerId} finished in ${minutes} minute(s) and ${seconds} second(s)`);
+    }
+  }
+};
+

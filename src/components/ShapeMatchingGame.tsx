@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { DragDropContext,DraggableProvided, DroppableProvided, Draggable, DropResult, DragUpdate, ResponderProvided } from 'react-beautiful-dnd';
+import { useLocation, useParams } from 'react-router-dom';
+import { markGameStart, markGameFinish } from '../services/GameSessions';
 import { StrictModeDroppable } from './StrictModeDroppable';
 import styles from '../Styling/ShapeMatchingGame.module.css';
 
@@ -34,6 +36,17 @@ const initialDrawers: Drawer[] = [
 const ShapeMatchingGame: React.FC = () => {
   const [drawers, setDrawers] = useState<Drawer[]>(initialDrawers);
   const [currentShape, setCurrentShape] = useState<Shape>('circle');
+  const location = useLocation();
+  //const { sessionId } = useParams();
+  const { sessionId, playerId } = location.state || {};
+
+  useEffect(() => {
+    console.log("The id's are ", sessionId, playerId);
+    if (sessionId && playerId) {
+      markGameStart(sessionId, playerId);
+      console.log("Game has started");
+    }
+  }, [sessionId, playerId]);
 
   const onDragUpdate = (update: DragUpdate, provided: ResponderProvided) => {
     const destinationId = update.destination?.droppableId;
@@ -62,6 +75,7 @@ const ShapeMatchingGame: React.FC = () => {
       );
 
       if (drawer.content === 'key') {
+        if (sessionId && playerId)  {markGameFinish(sessionId, playerId); console.log("Game has ended");}
         alert('You found the key and completed the game!');
       }
     } else {

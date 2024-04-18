@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../Styling/EncryptionGame.module.css';
+import { useLocation, useParams } from 'react-router-dom';
+import { markGameStart, markGameFinish } from '../services/GameSessions';
 
 // Define types for the component props
 type EncryptionGameProps = {
@@ -13,21 +15,39 @@ const EncryptionGame: React.FC<EncryptionGameProps> = ({ encryptedSentence, corr
   const [userInput, setUserInput] = useState<string>('');
   const [timer, setTimer] = useState<number>(timeLimit);
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
+  const location = useLocation();
+  const { sessionId, playerId } = location.state || {};
 
   useEffect(() => {
-    if (timer > 0) {
-      const intervalId = setInterval(() => {
-        setTimer(prevTimer => prevTimer - 1);
-      }, 1000);
-      return () => clearInterval(intervalId);
-    } else {
-      setIsGameOver(true);
+    let intervalId: number; // Correctly type intervalId as a number
+  
+    if (!isGameOver) {
+      if (sessionId && playerId) {
+        markGameStart(sessionId, playerId);
+      }
+  
+      if (timer > 0) {
+        intervalId = window.setInterval(() => {
+          setTimer((prevTimer) => prevTimer - 1);
+        }, 1000);
+      } else {
+        setIsGameOver(true);
+      }
     }
-  }, [timer]);
+  
+    // Clean up the interval on unmount or if the game is over
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [timer, sessionId, playerId, isGameOver]);
+  
+  
 
   const checkSolution = (): void => {
     if (userInput.toLowerCase() === correctSentence.toLowerCase()) {
+      if (sessionId && playerId) markGameFinish(sessionId, playerId); 
       alert('Correct!');
+      setIsGameOver(true);
     } else {
       alert('Incorrect, try again!');
     }
@@ -50,7 +70,7 @@ const EncryptionGame: React.FC<EncryptionGameProps> = ({ encryptedSentence, corr
       <button onClick={checkSolution} disabled={isGameOver}>
         Submit
       </button>
-      {isGameOver && <p>Time's up! The correct sentence was: {correctSentence}</p>}
+      {isGameOver && <p>The correct sentence was: {correctSentence}</p>}
     </div>
   );
 };

@@ -1,8 +1,10 @@
 // BallSortGame.tsx
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
+import { useLocation, useParams } from 'react-router-dom';
 import styles from '../Styling/BallSortGame.module.css';
 import { StrictModeDroppable } from './StrictModeDroppable';
+import { markGameStart, markGameFinish } from '../services/GameSessions';
 
 type BallColor = 'blue' | 'orange';
 
@@ -25,6 +27,15 @@ const initialTubes: Tube[] = [
 
 const BallSortGame: React.FC = () => {
   const [tubes, setTubes] = useState<Tube[]>(initialTubes);
+  const location = useLocation();
+  //const { sessionId } = useParams();
+  const { sessionId, playerId } = location.state || {};
+
+  useEffect(() => {
+    if (sessionId && playerId) {
+      markGameStart(sessionId, playerId);
+    }
+  }, [sessionId, playerId]);
 
   // Function to handle the end of a drag event
   const onDragEnd = (result: DropResult) => {
@@ -74,6 +85,7 @@ const BallSortGame: React.FC = () => {
   
     if (isWinningCondition) {
       // Trigger winning logic
+      if (sessionId && playerId) markGameFinish(sessionId, playerId);
       alert("Congratulations, you've solved the puzzle!");
     }
   };  

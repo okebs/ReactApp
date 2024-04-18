@@ -5,6 +5,7 @@ import { db } from '../main';
 import { doc, updateDoc, onSnapshot, Unsubscribe } from 'firebase/firestore';
 import { createNewGameSession } from '../services/GameSessions';
 import { Link, useNavigate } from 'react-router-dom';
+import { Player } from '../models/GameSessionModel';
 
 // Define a type for your game keys
 type GameKey = 'encrypt' | 'greedyTrolls' | 'ballSort' | 'shapeMatch'; // Add all game keys here
@@ -30,6 +31,26 @@ function Home() {
     const [sessionDocRef, setSessionDocRef] = useState(null);
     const navigate = useNavigate(); // Use navigate hook for redirection
 
+    useEffect(() => {
+      // Function to handle the event when local storage changes
+      const handleStorageChange = (event: StorageEvent) => {
+        if (event.key === 'gameFinished' && event.newValue) {
+          const finishedData = JSON.parse(event.newValue);
+          alert(`${finishedData.playerId} finished in ${finishedData.time}`);
+          // Clear the localStorage after handling the event
+          localStorage.removeItem('gameFinished');
+        }
+      };
+    
+      // Add event listener for changes in localStorage
+      window.addEventListener('storage', handleStorageChange);
+    
+      // Cleanup
+      return () => {
+        window.removeEventListener('storage', handleStorageChange);
+      };
+    }, []);    
+
     const subscribeToSession = (sessionId: string) => {
       const sessionDocRef = doc(db, 'gameSessions', sessionId);
   
@@ -38,9 +59,23 @@ function Home() {
         if (doc.exists()) {
           const data = doc.data();
           console.log('Document data:', data); // Add this to check the incoming data
-          // Assuming 'players' is an object where keys are player IDs
-          const newPlayerCount = setPlayerCount(Object.keys(data.players || {}).length);
-          console.log('New player count:', newPlayerCount);
+          const playerKeys = Object.keys(data.players || {});
+          setPlayerCount(playerKeys.length); // Update the state directly
+          console.log('New player count:', playerKeys.length);
+
+          // Find the player with the lowest duration
+          const finishedPlayers = Object.values(data.players as Record<string, Player>)
+            .filter(p => p.timeFinished)
+            .sort((a, b) => (a.duration || Infinity) - (b.duration || Infinity));
+
+          // if (finishedPlayers.length > 0) {
+          //   const fastestPlayer = finishedPlayers[0]; // fastestPlayer is now typed as Player
+          //   if(fastestPlayer.duration){
+          //     const minutes = Math.floor(fastestPlayer.duration / 60);
+          //     const seconds = fastestPlayer.duration % 60; // Remaining seconds
+          //     alert(`${fastestPlayer.playerId} finished first with a time of ${minutes} minute(s) and ${seconds} second(s)`);
+          //   }
+          // }
         } else {
           console.log('No such document!');
         }

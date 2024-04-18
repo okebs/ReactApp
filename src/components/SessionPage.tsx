@@ -5,10 +5,11 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import { joinGameSession } from '../services/GameSessions';
 import styles from '../Styling/SessionPage.module.css';
 
-const GameSessionPage = () => {
+const SessionPage = () => {
   const navigate = useNavigate();
   const { sessionId } = useParams(); // This will get the sessionId from the URL
   const [gameId, setGameId] = useState('');
+  const [playerId, setPlayerId] = useState('');
 
   useEffect(() => {
     if (!sessionId) {
@@ -19,41 +20,46 @@ const GameSessionPage = () => {
 
     const joinSession = async () => {
       try {
-        // Join the game session and add the user as a player
-        await joinGameSession(sessionId);
+        const newPlayerId = await joinGameSession(sessionId);
+        setPlayerId(newPlayerId); // Schedule state update
+        console.log("New player ID: ", newPlayerId); // Logs correct value
+    
+        // Now we use newPlayerId directly to navigate
+        if (newPlayerId) {
+          const sessionDocRef = doc(db, 'gameSessions', sessionId);
+          const unsubscribe = onSnapshot(sessionDocRef, (docSnapshot) => {
+            if (docSnapshot.exists()) {
+              const data = docSnapshot.data();
+              setGameId(data.gameId);
+    
+              if (data.state === 'active') {
+                navigate(`/${data.gameId}`, { state: { sessionId, playerId: newPlayerId } });
+              }
+            } else {
+              console.error('Session does not exist!');
+              navigate('/');
+            }
+          });
+    
+          return () => unsubscribe(); // Cleanup on unmount
+        }
+    
       } catch (error) {
         console.error('Error joining session:', error);
         navigate('/');
       }
     };
-
-    joinSession();
-
-    const sessionDocRef = doc(db, 'gameSessions', sessionId);
-    const unsubscribe = onSnapshot(sessionDocRef, (docSnapshot) => {
-      if (!docSnapshot.exists()) {
-        console.error('Session does not exist!');
-        navigate('/');
-        return;
-      }
-
-      const data = docSnapshot.data();
-      setGameId(data.gameId); // You can use this to display which game is being played
-
-      if (data.state === 'active') {
-        navigate(`/${data.gameId}`); // Redirect to the game component
-      }
-    });
-
-    return () => unsubscribe(); // Cleanup the listener
+    
+    joinSession();    
   }, [sessionId, navigate]);
 
   return (
     <div className={styles.homeContainer}>
       <h1>Game Session: {gameId}</h1>
-      <h2>Waiting for teacher to begin game...</h2>
+      <h2>You are {playerId}</h2>
+      <h3>Waiting for teacher to begin game...</h3>
     </div>
   );
 };
 
-export default GameSessionPage;
+export default SessionPage;

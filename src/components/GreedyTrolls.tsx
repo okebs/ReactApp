@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styles from '../Styling/GreedyTrolls.module.css';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
+import { useLocation, useParams } from 'react-router-dom';
+import { markGameStart, markGameFinish } from '../services/GameSessions';
 import { StrictModeDroppable } from './StrictModeDroppable';
 
 type CoinType = 'copper' | 'gold' | 'silver';
@@ -32,6 +34,15 @@ const correctSequences: CoinType[][] = [
 const GreedyTrolls: React.FC = () => {
   // Use useState to manage the coins array
   const [coinsState, setCoinsState] = useState(coins);
+  const location = useLocation();
+  //const { sessionId } = useParams();
+  const { sessionId, playerId } = location.state || {};
+
+  useEffect(() => {
+    if (sessionId && playerId) {
+      markGameStart(sessionId, playerId);
+    }
+  }, [sessionId, playerId]);
 
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
@@ -58,6 +69,7 @@ const GreedyTrolls: React.FC = () => {
   
     if (isWinner) {
       // Trigger winning logic, like showing a success message or advancing the game
+      if (sessionId && playerId) markGameFinish(sessionId, playerId);
       alert("Congratulations, you've won!");
     }
   };

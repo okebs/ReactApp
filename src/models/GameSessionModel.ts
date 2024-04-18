@@ -1,6 +1,8 @@
 export type Player = {
   playerId:string;
-  score: number;
+  timeStarted?: number | null;
+  timeFinished?: number | null;
+  duration?: number | null;
   };
   
   export type GameSession = {
